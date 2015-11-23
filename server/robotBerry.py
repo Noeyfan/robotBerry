@@ -83,14 +83,15 @@ class TetheredDriveApp(SocketServer.BaseRequestHandler):
     time.sleep(1.3);
     self.stop()
 
+  # TODO forward is also not accurate
   def forward(self):
-    self.sendCommandASCII('145 0 200 0 200')
-    time.sleep(2);
+    self.sendCommandASCII('145 1 39 1 39')
+    time.sleep(1);
     self.sendCommandASCII('145 0 0 0 0')
 
   def back(self):
-    self.sendCommandASCII('145 255 56 255 56')
-    time.sleep(2);
+    self.sendCommandASCII('145 254 227 254 227')
+    time.sleep(1);
     self.sendCommandASCII('145 0 0 0 0')
 
   def beep(self):
