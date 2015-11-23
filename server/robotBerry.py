@@ -20,7 +20,10 @@ class TetheredDriveApp(SocketServer.BaseRequestHandler):
   def handle(self):
     self.onConnect()
     self.data = self.request.recv(1024).strip()
-    self.callbackKey(self.data)
+    commands = self.data.split()
+    for c in commands:
+      self.callbackKey(c)
+    # self.callbackKey(self.data)
     self.request.sendall("precessed")
 
   # sendCommandASCII takes a string of whitespace-separated, ASCII-encoded base 10 values to send
