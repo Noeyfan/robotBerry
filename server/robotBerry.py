@@ -30,7 +30,7 @@ class TetheredDriveApp(SocketServer.BaseRequestHandler):
       cmd += chr(int(v))
     self.sendCommandRaw(cmd)
 
-	# sendCommandRaw takes a string interpreted as a byte array
+  # sendCommandRaw takes a string interpreted as a byte array
   def sendCommandRaw(self, command):
     global connection
     try:
@@ -69,7 +69,7 @@ class TetheredDriveApp(SocketServer.BaseRequestHandler):
   def stop(self):
     self.sendCommandASCII('145 0 0 0 0')
 
-  # TODO Rotatin not accurate
+  # TODO Rotation is not accurate
   def turnLeft(self):
     self.sendCommandASCII('145 0 150 255 106')
     time.sleep(1.3)
